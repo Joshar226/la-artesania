@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+    --playwrite: "Playwrite IT Moderna", serif;
+}
+
+.titulo {
+    font-family: var(--playwrite);
+}
+
+.hero {
+    background-image: url("hero.jpeg");
+}
+
+@theme {
+    --color-cafe: #33312b;
+    --color-secundario: #756a3c;
+    --color-amarillo-claro: #f5c304; 
+    --color-amarillo: #caa924;
+    --color-amarillo-oscuro: #a18b37;
+}
