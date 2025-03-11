@@ -11,10 +11,6 @@ export default function SubcategoryCard({title, description, image, href} : Subc
 
   const tabletWidht = 1024
 
-  console.log(screen.availWidth > tabletWidht);
-  
-  
-
   return (
     <section className="flex justify-around items-center">
       {screen.availWidth > tabletWidht && 'hidden' && (
@@ -26,11 +22,11 @@ export default function SubcategoryCard({title, description, image, href} : Subc
       <div className="bg-amarillo-oscuro ml-5 mr-10 lg:w-[20%]">
         <div className="bg-amarillo translate-5 ">
             <div className="p-10 flex flex-col items-center ">
-              <h3 className="text-center font-bold text-2xl uppercase">{title}</h3>
+              <h3 className="text-center font-bold text-2xl uppercase text-white">{title}</h3>
                 {screen.availWidth < tabletWidht && (
                   <img src={`/subcategories/${image}.webp`} alt={title} className="my-5"/>
                 )}
-              <p className="mb-5 lg:my-10 text-center">{description}</p>
+              <p className="mb-5 lg:my-10 text-center text-white">{description}</p>
               <Link to={`subcategory/${href}`} className="bg-white py-3 px-5 lg:p-5 border-4 border-amarillo-claro text-lg font-bold text-center" >Ver {title}</Link>
             </div>
         </div>

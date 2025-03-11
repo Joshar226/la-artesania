@@ -10,6 +10,7 @@ type Store = {
     increaseQuantity: (id: ProductType['id']) => void
     decreaseQuantity: (id: ProductType['id']) => void
     removeItem: (id: ProductType['id']) => void
+    clearCart: () => void
 }
     
 export const useStore = create<Store>((set, get) => ({
@@ -77,8 +78,23 @@ export const useStore = create<Store>((set, get) => ({
         }))
     },
     removeItem: (id) => {
-        set((state) => ({
-            cart: state.cart.filter(item => item.id !== id)
+        try {
+            set((state) => ({
+                cart: state.cart.filter(item => item.id !== id)
+            }))
+            toast.info('Producto removido')
+
+            if(get().cart.length === 0) set(() => ({
+                showCart: false
+            }))
+        } catch (error) {
+            console.log(error);
+            toast.error('Hubo un error')
+        }
+    },
+    clearCart: () => {
+        set(() => ({
+            cart: []
         }))
     }
 }))

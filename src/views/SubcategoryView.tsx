@@ -49,7 +49,7 @@ export default function SubcategoryView() {
             </div>
         </div>
 
-        <main className="container mx-auto my-28 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-16">
+        <main className="container mx-auto my-28 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-16 p-4">
             {items.map( item => (
                 <ProductCard 
                     key={item.id}

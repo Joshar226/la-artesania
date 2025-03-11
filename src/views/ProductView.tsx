@@ -32,7 +32,7 @@ export default function ProductView() {
     <>
         <h1 className="text-center text-secundario text-3xl font-bold mt-10 uppercase">Dormitorio</h1>
 
-        <div className="flex justify-center gap-2 text-secundario font-bold text-xl mt-2 border-b-4 pb-6 mb-28">
+        <div className="flex justify-center gap-2 text-secundario font-bold text-sm mt-2 border-b-4 p-4 lg:pb-6 lg:p-0 mb-28">
             <Link to={'/'} className="">Inicio</Link>
             <p>&gt;</p>
             <Link to={`/category/${categoryId}`} className="">{categoryTitle}</Link>
@@ -42,14 +42,16 @@ export default function ProductView() {
             <Link to={`/category/${categoryId}/subcategory/${subcategoryId}/product/${productId}`} className="">{title}</Link>
         </div>
 
-        <section className="container mx-auto grid grid-cols-2" >
-            <img 
-                src={`/products/${image}.webp`}
-                alt={title}
-                className="w-[400px] mx-auto my-0"
-            />
+        <section className="container mx-auto flex items-start flex-col lg:flex-row" >
+            <div className="lg:w-1/2 mx-auto w-full">
+                <img
+                    src={`/products/${image}.webp`}
+                    alt={title}
+                    className="mx-auto w-1/2 lg:w-auto"
+                />
+            </div>
 
-            <aside className="flex flex-col">
+            <aside className="flex flex-col lg:w-1/2 p-4 lg:p-0">
                 <div className="flex flex-col h-full gap-4 items-start">
                     <h2 className="text-4xl font-bold">{title}</h2>
                     <div>
@@ -96,10 +98,10 @@ export default function ProductView() {
             </aside>
         </section>
 
-        <section className="container mx-auto mb-15">
+        <section className="container mx-auto mb-15 p-4 lg:p-0">
             <h2 className="text-3xl font-bold mb-3">Te puede interesar</h2>
 
-            <div className="grid grid-cols-4 gap-15">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-15">
                 {items.map( item => (
                     <ProductCard 
                         key={item.id}

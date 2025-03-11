@@ -3,10 +3,9 @@ import { Link, Outlet } from "react-router-dom"
 import { categories } from "../data/categories"
 import { IoCart } from "react-icons/io5"
 import { useStore } from "../store"
-import { useEffect, useMemo } from "react"
-import CartCard from "../components/CartCard"
-import { formatCurrency } from "../utils"
+import { useEffect } from "react"
 import { ToastContainer } from "react-toastify"
+import Cart from "../components/Cart"
 
 
 export default function AppLayout() {
@@ -19,10 +18,6 @@ export default function AppLayout() {
     if( showCart ) main.classList.add('overflow-hidden'); else main.classList.remove('overflow-hidden')
       
   }, [showCart, main])
-
-  const cart = useStore( (state) => state.cart)
-
-  const total = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
 
   const year = new Date().getFullYear()
 
@@ -44,30 +39,9 @@ export default function AppLayout() {
         </div>
       </div>
 
-      <div className={`fixed inset-0 flex z-1 bg-black/70 ${!showCart && 'w-0 transition-all duration-500'}`} >
-        <div className="flex-1" onClick={() => setShowCart(false)} ></div>
-
-        <aside className={`${showCart ? 'w-[20%] transition-all duration-500 p-3' : 'w-0 '} overflow-y-auto h-svh space-y-4 flex flex-col`}>
-            <div className="space-y-4 flex-1">
-              {cart.map ( item => (
-                <CartCard
-                  key={item.id}
-                  item={item}
-                />
-              ))}
-            </div>
-            
-            <div className="bg-white p-3 space-y-2">
-              <p className="text-amarillo font-bold text-2xl ">Total: <span className="text-black">{formatCurrency(total)}</span></p>
-              <button className="bg-amarillo text-white uppercase text-2xl font-bold w-full p-1 cursor-pointer hover:bg-amarillo-oscuro">Confirmar</button>
-            </div>
-        </aside>
-      </div>
-      
+      <Cart />
 
       <Outlet />
-
-
 
       <footer>
         <div className="bg-cafe">

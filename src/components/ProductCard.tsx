@@ -16,7 +16,7 @@ export default function ProductCard({id, title , price , image, categoryId, subc
         <img 
             src={`/products/${image}.webp`}
             alt={title} 
-            className="mb-3 max-w-[250px] max-h-[200px]"
+            className="mb-3 max-w-[90%] max-h-[200px]"
         />
         <div className="text-lg border-b-4 border-amarillo-claro pb-5 mb-3 w-[90%]">
             <p>{title}</p>
@@ -25,7 +25,7 @@ export default function ProductCard({id, title , price , image, categoryId, subc
 
         <Link 
             to={`/category/${categoryId}/subcategory/${subcategoryId}/product/${id}`}
-            className="bg-amarillo-claro py-3 px-7 text-white font-bold hover:bg-amarillo transition-colors text-center"    
+            className="bg-amarillo-claro py-3 px-7 text-white font-bold hover:bg-amarillo transition-colors text-center text-sm lg:text-base"    
         >Ver Producto</Link>
     </div>
   )

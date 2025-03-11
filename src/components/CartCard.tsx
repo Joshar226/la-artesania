@@ -24,11 +24,11 @@ export default function CartCard({item} : CartCardProps) {
       <GoTrash size={30} color="red" className="cursor-pointer" onClick={() => removeItem(item.id)}/>
     </div>
 
-    <div className="flex gap-2 justify-around items-center">
+    <div className="flex gap-2 justify-evenly items-center">
       <img
         src={`/products/${item.image}.webp`}
         alt="cama"
-        className="w-1/2"
+        className="max-w-[40%]"
       />
 
       <div className="flex items-center text-center flex-col text-lg space-y-2">
