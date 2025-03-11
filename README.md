@@ -18,7 +18,7 @@ Este es un proyecto muy simple y muy basico, no fue nada especializado, todo el 
 
 📦 Instalación y Ejecución
 Para ejecutar el proyecto en local:
-· git clone [URL_DEL_REPOSITORIO]
+· git clone https://github.com/Joshar226/la-artesania.git
 · cd proyecto
 · npm install
 · npm run dev
